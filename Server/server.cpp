@@ -64,6 +64,18 @@ ServerConfig readConfig(const std::string& configFile) {
 }
 
 
+/**
+ * Synchronizes the folders between a client and a server.
+ *
+ * @param clientSourceDir The path to the client source folder.
+ * @param serverDestDir The path to the server destination folder.
+ * @param clientSocket The socket of the client.
+ *
+ * @throws Error getting file information if there is an error while getting information about a file.
+ * @throws Error writing to destination file if there is an error while writing to the destination file.
+ * @throws Error getting server file information if there is an error while getting information about a server file.
+ * @throws Error writing to client destination file if there is an error while writing to the client destination file.
+ */
 void synchronizeFolders(const char* clientSourceDir, const char* serverDestDir, int clientSocket) {
     // Ensure the client source folder exists
     if (!fs::exists(clientSourceDir)) {
