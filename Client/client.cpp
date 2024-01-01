@@ -58,11 +58,6 @@ ClientConfig readConfig(const std::string& configFile) {
  * connecting to the server, or receiving data from the server.
  */
 int startClient(const ClientConfig& config) {
-    // Check if the folder path exists, if not, create it
-    if (!fs::exists(config.folderPath)) {
-        fs::create_directory(config.folderPath);
-        std::cout << "Created folder: " << config.folderPath << std::endl;
-    }
 
     // Create a socket
     int clientSocket = socket(AF_INET, SOCK_STREAM, 0);

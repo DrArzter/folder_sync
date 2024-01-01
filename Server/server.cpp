@@ -77,17 +77,6 @@ ServerConfig readConfig(const std::string& configFile) {
  * @throws Error writing to client destination file if there is an error while writing to the client destination file.
  */
 void synchronizeFolders(const char* clientSourceDir, const char* serverDestDir, int clientSocket) {
-    // Ensure the client source folder exists
-    if (!fs::exists(clientSourceDir)) {
-        fs::create_directory(clientSourceDir);
-        std::cout << "Created client source folder: " << clientSourceDir << std::endl;
-    }
-
-    // Ensure the server destination folder exists
-    if (!fs::exists(serverDestDir)) {
-        fs::create_directory(serverDestDir);
-        std::cout << "Created server destination folder: " << serverDestDir << std::endl;
-    }
 
     // Sync from client to server
     DIR* dir;
@@ -284,12 +273,6 @@ int main(int argc, char *argv[]) {
             continue;
         }
         folderPathBuffer[pathBytesRead] = '\0';
-
-        // Check if the folder exists, if not, create it
-        if (!fs::exists(folderPathBuffer)) {
-            fs::create_directory(folderPathBuffer);
-            std::cout << "Created folder: " << folderPathBuffer << std::endl;
-        }
 
         // Handle bidirectional synchronization for each connection
         synchronizeFolders(folderPathBuffer, config.serverSyncFolder.c_str(), clientSocket);
