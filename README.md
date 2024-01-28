@@ -88,4 +88,4 @@ python3 client.py config.json
 
 ### Dziłanie programu
 
-![](https://github.com/Irrisorr/bestBook_21St/blob/main/images/gif.gif)
+![](https://github.com/Irrisorr/folder_sync/blob/main/images/gif.gif)
