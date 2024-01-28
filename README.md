@@ -86,6 +86,6 @@ python3 client.py config.json
 
 ---
 
-### Dziłanie programu
+### Running program
 
 ![](https://github.com/Irrisorr/folder_sync/blob/main/images/gif.gif)
